@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz App - Main Menu</title>
+  <link rel="stylesheet" href="data/stylesheet.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🎯 Welcome to the Quizzy App</h1>
+
+    <div class="buttons">
+      <button onclick="startQuiz()">Start Quiz</button>
+      <button onclick="openLeaderboard()">Leaderboard</button>
+    </div>
+
+    <div class="footer">
+      Developed by: Arvind Singla
+    </div>
+
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+  </div>
+
+  <script>
+    function startQuiz() {
+      window.location.href = 'data/main.html';
+    }
+
+    function openLeaderboard() {
+      window.location.href = 'leaderboard.html';
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
