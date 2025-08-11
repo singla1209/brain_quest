@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Quiz Results</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <style>
+  body { font-family: Arial, sans-serif; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+  th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+  th { background-color: #f4f4f4; }
+
+  /* Collapsible button */
+  .collapsible { 
+    background: #007bff; 
+    color: white; 
+    cursor: pointer; 
+    padding: 8px; 
+    border: none; 
+    text-align: left; 
+    width: 100%; 
+  }
+  .active, .collapsible:hover { background-color: #0056b3; }
+
+  /* Collapsible content */
+  .content { 
+    display: none; 
+    overflow: hidden; 
+    padding: 10px; 
+    background: #ffffff; /* changed to pure white for better contrast */
+    color: #000000; /* black text for clarity */
+    border: 1px solid #ccc; 
+    border-top: none;
+  }
+
+  /* Question table inside collapsible */
+  .content table th {
+    background-color: #e9ecef; /* light gray header */
+    color: #000;
+  }
+  .content table td {
+    background-color: #fdfdfd; /* slightly off-white cells */
+  }
+
+/* Heading row fix */
+th {
+  background-color: #007bff !important; /* Blue background */
+  color: #ffffff !important; /* White text */
+}
+
+</style>
+
+</head>
+<body>
+  <h1>All Quiz Results</h1>
+  <div id="results-container">Loading results...</div>
+
+  <!-- Firebase v8 SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <script>
+    // Firebase config
+    var firebaseConfig = {
+      apiKey: "AIzaSyBWTOgHmlJmCtpb2LQ7g3wj_IMsTwyTNDE",
+      authDomain: "quizzy-ea14d.firebaseapp.com",
+      projectId: "quizzy-ea14d",
+      storageBucket: "quizzy-ea14d.appspot.com",
+      messagingSenderId: "452576898646",
+      appId: "1:452576898646:web:9fa8dbc2e106bcce8615f7",
+      measurementId: "G-VKNVF4YZCB"
+    };
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+
+    const container = document.getElementById("results-container");
+
+    db.collection("quiz_results")
+      .orderBy("date", "desc")
+      .get()
+      .then(snapshot => {
+        if (snapshot.empty) {
+          container.innerHTML = "<p>No results found.</p>";
+          return;
+        }
+
+        container.innerHTML = "";
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const dateStr = new Date(data.date).toLocaleString();
+
+          // Summary table
+          const summaryTable = `
+            <table>
+              <tr><th>Name</th><td>${data.name}</td></tr>
+              <tr><th>Score</th><td>${data.score} / ${data.totalQuestions}</td></tr>
+              <tr><th>Correct</th><td>${data.correctAnswers}</td></tr>
+              <tr><th>Incorrect</th><td>${data.incorrectAnswers}</td></tr>
+              <tr><th>Date</th><td>${dateStr}</td></tr>
+            </table>
+          `;
+
+          // Question details table
+          let questionRows = "";
+          if (Array.isArray(data.responses)) {
+            data.responses.forEach((q, i) => {
+              questionRows += `
+                <tr>
+                  <td>${i + 1}</td>
+                  <td>${q.question}</td>
+                  <td>${q.selectedAnswer}</td>
+                  <td>${q.correct || ""}</td>
+                </tr>
+              `;
+            });
+          }
+          const questionsTable = `
+            <table>
+              <thead>
+                <tr><th>#</th><th>Question</th><th>Your Answer</th><th>Correct Answer</th></tr>
+              </thead>
+              <tbody>${questionRows}</tbody>
+            </table>
+          `;
+
+          // Collapsible block
+          const block = document.createElement("div");
+          block.innerHTML = `
+            ${summaryTable}
+            <button class="collapsible">Show Questions</button>
+            <div class="content">${questionsTable}</div>
+          `;
+          container.appendChild(block);
+        });
+
+        // Collapsible button functionality
+        document.querySelectorAll(".collapsible").forEach(btn => {
+          btn.addEventListener("click", function() {
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+              this.textContent = "Show Questions";
+            } else {
+              content.style.display = "block";
+              this.textContent = "Hide Questions";
+            }
+          });
+        });
+      })
+      .catch(err => {
+        console.error("Error loading results:", err);
+        container.innerHTML = "<p>Error loading results.</p>";
+      });
+  </script>
+</body>
+</html>

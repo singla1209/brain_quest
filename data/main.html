@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz App - Main Menu</title>
+  <link rel="stylesheet" href="stylesheet.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🎯 Welcome to the Quizzy App</h1>
+
+    <div class="buttons">
+      <button onclick="window.location.href='quiz.html?json=questions.json'">Science</button>
+      <button onclick="window.location.href='quiz.html?json=questions_sst.json'">Social Studies</button>
+      <button onclick="window.location.href='quiz.html?json=questions_eng.json'">English</button>
+      <button onclick="window.location.href='quiz.html?json=questions_math.json'">Mathematics</button>
+      <button onclick="window.location.href='quiz.html?json=questions_cs.json'">Computer Science</button>
+
+    </div>
+
+    <div class="footer">
+      Developed by: Arvind Singla
+    </div>
+
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+</body>
+</html>
