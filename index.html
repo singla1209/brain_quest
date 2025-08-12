@@ -12,7 +12,7 @@
 
     <div class="buttons">
       <button onclick="startQuiz()">Start Quiz</button>
-      <button onclick="openLeaderboard()">View Result</button>
+      <button window.location.href='data/results.html'">View Result</button>
     </div>
 
     <div class="footer">
@@ -27,14 +27,11 @@
       window.location.href = 'data/main.html';
     }
 
-    function openLeaderboard() {
-      window.location.href = 'leaderboard.html';
-    }
-
     function toggleDarkMode() {
       document.body.classList.toggle('dark');
     }
   </script>
 </body>
 </html>
+
 
