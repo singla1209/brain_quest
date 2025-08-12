@@ -154,11 +154,32 @@ th {
         container.innerHTML = "<p>Error loading results.</p>";
       });
   </script>
-  <div style="text-align:center;">
-  <button onclick="window.location.href='https://singla1209.github.io/brain_quest'">Go to Home Screen </button>
-  </div>
+
+  
+  <div style="text-align:center; margin-top:10em;">
+  <button onclick="window.location.href='https://singla1209.github.io/brain_quest'" 
+    style="padding:12px 24px; 
+           font-size:18px; 
+           background-color:#4CAF50; 
+           color:white; 
+           border:none; 
+           border-radius:8px; 
+           cursor:pointer; 
+           box-shadow:0 4px 6px rgba(0,0,0,0.2);">
+    Go to Home Screen
+  </button>
+</div>
+
+<script>
+  // Simple hover effect
+  const btn = document.querySelector('button');
+  btn.addEventListener('mouseover', () => btn.style.backgroundColor = '#45a049');
+  btn.addEventListener('mouseout', () => btn.style.backgroundColor = '#4CAF50');
+</script>
+
 </body>
 </html>
+
 
 
 
