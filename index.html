@@ -1,46 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quiz App - Main Menu</title>
-  <link rel="stylesheet" href="data/stylesheet.css" />
+  <title>BrainQuest</title>
+  <link href="css/style.css" rel="stylesheet"/>
 </head>
 <body>
   <div class="container">
-    <h1 class="title">🎯 Welcome to the Quizzy App</h1>
+    <main>
 
-    <div class="buttons">
-      <button onclick="startQuiz()">Start Quiz</button>
-      <button onclick="viewResult()">View Result</button>
-      <button onclick="passwordFile()">Admin</button>
-    </div>
+      <!-- ===== AUTH ===== -->
+      <section class="active" id="auth">
+        <div class="shell">
+          <div class="card-auth">
+            <div id="brand">
+              <img src="images/brand-logo.png" alt="BrainQuest" style="width:220px; height:auto;"/>
+            </div>
+            <div class="subtitle">Sign in to start your quizzes</div>
+            <input id="login-id" placeholder="Email or Mobile*"/>
+            <input id="login-pass" type="password" placeholder="Password*"/>
+            <button class="btn" id="login-btn" style="width:100%">Log In</button>
+            <div class="splitter"></div>
+            <button class="google-btn" id="google-btn">Sign in with Google</button>
+            <div class="splitter"></div>
+            <div class="tiny">Don't have an account? Create one:</div>
+            <input id="signup-name" placeholder="Full Name*"/>
+            <input id="signup-id" placeholder="Email or Mobile*"/>
+            <input id="signup-pass" type="password" placeholder="Password (min 6)*"/>
+            <button class="btn" id="signup-btn" style="width:100%">Sign Up</button>
+            <p id="auth-msg" style="min-height:22px;margin:.6rem 0 0;color:#ffd966"></p>
+          </div>
+        </div>
+      </section>
 
-    <div class="footer">
-      Developed by: Arvind Singla
-    </div>
+      <!-- ===== SUBJECTS ===== -->
+      <section id="subjects">
+        <div>
+          <h2 id="hello"></h2>
+          <p>Select a subject to begin:</p>
+          <div id="subject-list"></div>
+          <div class="top-actions">
+            <button class="btn secondary" id="logout-1">Logout</button>
+          </div>
+        </div>
+      </section>
 
-    <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+      <!-- ===== CHAPTERS & LEVELS ===== -->
+      <section id="chapters">
+        <div>
+          <h2 id="chapters-title">Choose a chapter</h2>
+          <p class="muted" id="chapters-subtitle">NCERT Class 10 • Session 2025–26</p>
+          <div id="chapter-list"></div>
+          <div id="level-list" style="margin-top:16px; display:none"></div>
+          <div class="top-actions">
+            <button class="btn secondary" id="back-to-chapters" style="display:none">Back to chapters</button>
+            <button class="btn secondary" id="back-to-subjects-2">Back to subjects</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== QUIZ ===== -->
+      <section id="quiz">
+        <div id="quiz-wrapper">
+          <h2 id="welcome-banner"></h2> <!-- Welcome message with subject -->
+          <div class="stats" id="stats">✅ Correct: 0   |   ❌ Incorrect: 0</div>
+          <div class="muted" id="qprogress" style="text-align:center">Question 1/1</div>
+          <!-- Progress bar -->
+          <div class="bar"><div id="bar-inner"></div></div>
+
+          <!-- Quiz question and options -->
+          <div class="quiz-card">
+            <div id="question">Loading…</div>
+            <div id="options"></div>
+          </div>
+
+          <!-- End screen after quiz is finished -->
+          <div id="end-screen" style="display:none;margin-top:14px;text-align:center"></div>
+
+          <!-- Last 5 results panel -->
+          <div id="results-panel">
+            <h3>Last 5 Results</h3>
+            <div class="results-box">
+              <table>
+                <thead>
+                  <tr id="results-header">
+                    <th style="width:19%">Date &amp; Time</th>
+                    <th style="width:21%">Subject</th>
+                    <th style="width:20%">Name</th>
+                    <th style="width:10%">Correct</th>
+                    <th style="width:10%">Incorrect</th>
+                    <th style="width:20%">Time Taken</th>
+				
+                  </tr>
+                </thead>
+                <tbody id="last5-body">
+                  <tr><td class="muted" colspan="6">Loading…</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Buttons at bottom of quiz -->
+          <div class="top-actions" style="margin-top:14px">
+            <button class="btn secondary" id="back-to-subjects">Choose another subject</button>
+            <button class="btn secondary" id="logout-2">Logout</button>
+          </div>
+
+          <!-- Correct & Wrong sounds -->
+          <audio id="correct-sound" preload="auto" src="correct.mp3"></audio>
+          <audio id="wrong-sound" preload="auto" src="wrong.mp3"></audio>
+        </div>
+      </section>
+
+
+    </main>
   </div>
 
-  <script>
-    function startQuiz() {
-      window.location.href = 'data/main.html';
-    }
-    function viewResult() {
-      window.location.href = 'data/results.html';
-    }
-    function passwordFile(){
-      window.location.href='data/password_file1.html';
-    }
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark');
-    }
-  </script>
+  <!-- ===== CONFETTI / MODAL / FOOTER ===== -->
+  <canvas id="confetti"></canvas>
+  <div id="celebrate-overlay" aria-hidden="true">
+    <div id="celebrate-card">
+      <div id="big-name"></div> <!-- Shows user name -->
+      <div id="motivation"></div> <!-- Motivational text -->
+      <canvas id="donut" width="180" height="180"></canvas> <!-- Chart for score -->
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:8px">
+        <button class="btn" id="play-again-btn">Play Again</button>
+        <button class="btn secondary" id="celebrate-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= MODAL POPUP (detailed results) ======= -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <button class="close" id="modal-close" aria-label="Close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+  
+
+  <script type="module" src="js/app.js"></script>
+  <div class="developer-name">© 2025 Arvind Singla</div>
+  
+
+  
 </body>
 </html>
-
-
-
-
-
