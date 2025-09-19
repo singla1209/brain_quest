@@ -163,7 +163,6 @@ async function listChapters(path, subjectKey) {
   return chapters;
 }
 
-
 function shuffle(arr){
   for(let i=arr.length-1;i>0;i--){
     const j = Math.floor(Math.random()*(i+1));
@@ -171,7 +170,6 @@ function shuffle(arr){
   }
   return arr;
 }
-
 
 /* ---------- State ---------- */
 let userName = "";
@@ -185,6 +183,8 @@ let quizStartMs = null;
 /* 🔹 NEW STATE for multi-level */
 let currentLevel = null;
 let currentGhPath = null;
+let currentBasePath = null;
+let currentChapterBase = null;
 
 /* Build subject buttons */
 const list = $("subject-list");
@@ -195,6 +195,7 @@ SUBJECTS.forEach(s => {
   btn.onclick = () => startSubject(s);
   list.appendChild(btn);
 });
+
 /* ---------- Auth actions ---------- */
 $("login-btn").onclick = async () => {
   msg();
@@ -223,9 +224,9 @@ $("google-btn").onclick = async () => {
       createdAt: serverTimestamp()
     }, { merge:true });
     dbg("Google sign-in ok:", { uid: cred.user.uid, email: cred.user.email });
-  } catch(e){ 
+  } catch(e){
     console.error("Google sign-in error:", e);
-    msg(humanAuthError(e)); 
+    msg(humanAuthError(e));
   }
 };
 
@@ -238,7 +239,6 @@ $("signup-btn").onclick = async () => {
   const rawId = id;
   if(!id.includes("@")) id += "@mobile.com";
   try {
-    // If already logged in as someone else, sign out first to avoid stale session
     if(auth.currentUser){
       dbg("Signing out current user before signup:", auth.currentUser.email);
       await signOut(auth);
@@ -301,16 +301,21 @@ onAuthStateChanged(auth, async (user) => {
 async function startSubject(s) {
   subject = s;
   $("chapter-list").innerHTML = "Loading...";
-  const items = await listChapters(s.path, s.key); // ✅ pass subject key for pretty names
+
+  // fetch chapters with pretty titles + basePath + chapterBase
+  const chapters = await listChapters(s.path, s.key);
 
   $("chapter-list").innerHTML = ""; // reset
-  items.forEach(file => {
+  for (const file of chapters) {
     const btn = document.createElement("button");
     btn.className = "btn chapter";
-    btn.textContent = file.prettyTitle;   // ✅ already prepared in listChapters
-    btn.onclick = () => startChapterQuiz(file, file.prettyTitle);  // ✅ pass whole chapter object
+    btn.textContent = file.prettyTitle;
+
+    // ✅ pass the chapter object and prettyTitle
+    btn.onclick = () => startChapterQuiz(file, file.prettyTitle);
+
     $("chapter-list").appendChild(btn);
-  });
+  }
 
   $("chapter-list").style.display = "grid";
   $("level-list").style.display = "none";
@@ -318,10 +323,7 @@ async function startSubject(s) {
   show("chapters");
 }
 
-
-
 /* 🔹 UPDATED: show levels */
-
 async function startChapterQuiz(chapter, prettyTitle) {
   currentChapterTitle = prettyTitle;
   $("chapter-list").style.display = "none";   // hide chapters
@@ -372,9 +374,25 @@ async function startChapterQuiz(chapter, prettyTitle) {
 }
 
 /* 🔹 MODIFIED signature */
-async function beginQuizFromUrl(url, subjectLabel, chapterTitle, level=null, ghPath=null){
+async function beginQuizFromUrl(url, subjectLabel, chapterTitle, level = null, ghPath = null) {
   currentLevel = level;
   currentGhPath = ghPath;
+  currentChapterTitle = chapterTitle;
+  subject = { label: subjectLabel };
+
+  // 🔹 Extract basePath + chapterBase from ghPath
+  if (ghPath) {
+    const match = ghPath.match(/^(.*\/)(chapter\d+)\.json$/i);
+    if (match) {
+      currentBasePath = match[1];      // e.g. "Data/science/"
+      currentChapterBase = match[2];   // e.g. "chapter1"
+    } else {
+      console.warn("Could not extract chapter info from ghPath:", ghPath);
+      currentBasePath = null;
+      currentChapterBase = null;
+    }
+  }
+
   idx = 0; correct = 0; incorrect = 0; responses = [];
   quizStartMs = null;
   $("stats").textContent = `✅ Correct: 0  |  ❌ Incorrect: 0`;
@@ -387,16 +405,16 @@ async function beginQuizFromUrl(url, subjectLabel, chapterTitle, level=null, ghP
 
   show("quiz");
 
-  try{
-    const res = await fetch(url, {cache:"no-store"});
+  try {
+    const res = await fetch(url, { cache: "no-store" });
     const raw = await res.json();
     questions = Array.isArray(raw) ? raw.slice() : [];
-  }catch(e){ 
+  } catch (e) {
     console.error("Fetch questions error:", e);
-    questions = []; 
+    questions = [];
   }
 
-  if(!questions.length){
+  if (!questions.length) {
     $("question").textContent = "Could not load questions.";
     $("options").innerHTML = "";
     fetchLastFive();
@@ -406,7 +424,7 @@ async function beginQuizFromUrl(url, subjectLabel, chapterTitle, level=null, ghP
   shuffle(questions);
 
   questions = questions.map(q => {
-    const entries = Object.entries(q.options || {}).map(([key,text]) => ({key, text}));
+    const entries = Object.entries(q.options || {}).map(([key, text]) => ({ key, text }));
     shuffle(entries);
     return { ...q, _optionsArr: entries, _correctKey: q.correct };
   });
@@ -416,7 +434,6 @@ async function beginQuizFromUrl(url, subjectLabel, chapterTitle, level=null, ghP
 }
 
 /* ---------- Rest of quiz flow (renderQuestion, choose, finishQuiz, etc.) ---------- */
-// Keep all your existing functions here…
 function renderQuestion(){
   const q = questions[idx];
   $("question").textContent = `Q${idx+1}. ${q.question}`;
@@ -477,191 +494,219 @@ function toMillis(df){
   return new Date(df).getTime() || 0;
 }
 
-async function finishQuiz(){
+async function finishQuiz() {
   $("question").textContent = "All done!";
   $("options").innerHTML = "";
   $("end-screen").style.display = "block";
   $("end-screen").innerHTML = `<h3>Score: ${correct} / ${questions.length}</h3>`;
 
-  const timeTakenSec = quizStartMs ? (Date.now() - quizStartMs)/1000 : 0;
+  const timeTakenSec = quizStartMs ? (Date.now() - quizStartMs) / 1000 : 0;
 
-  try{
+  // 🔹 Save quiz result (for last 5 results panel)
+  try {
     const current = auth.currentUser;
-    await addDoc(collection(db, "quiz_results"), {
-      name: (userName || current?.displayName || ""),
-      score: correct,
-      totalQuestions: questions.length,
-      correctAnswers: correct,
-      incorrectAnswers: questions.length - correct,
-      responses: responses,
-      date: serverTimestamp(),
-      subject: subject ? `${subject.label} : ${currentChapterTitle}` : null,
-      userId: current ? current.uid : null,
-      userEmail: current ? current.email : null,
-      timeTakenSec: Math.round(timeTakenSec)
-    });
-    fetchLastFive();
-  }catch(e){
+  await addDoc(collection(db, "quiz_results"), {
+  name: (userName || current?.displayName || ""),
+  score: correct,
+  totalQuestions: questions.length,
+  correctAnswers: correct,
+  incorrectAnswers: questions.length - correct,
+  responses: responses,
+  date: serverTimestamp(),
+  subject: subject ? subject.label : null,                // e.g., "Science"
+  chapter: currentChapterTitle || null,                   // e.g., "Chapter 1: Chemical Reactions and Equations"
+  level: currentLevel || 1,                               // e.g., 1, 2, 3, ...
+  userId: current ? current.uid : null,
+  userEmail: current ? current.email : null,
+  timeTakenSec: Math.round(timeTakenSec)
+});
+
+
+
+    fetchLastFive(); // ✅ refresh last 5 results panel
+  } catch (e) {
     console.error("Save failed:", e);
   }
 
-  /* 🔹 Unlock next level */
+  // 🔹 Update progress: mark this level completed, unlock next
   try {
-   if (currentLevel && currentGhPath) {
-  try {
-    // sanitize ghPath to avoid slashes in doc ID
-    let chapterDocId = String(currentGhPath).replace(/\//g, "_");
-    // normalize → remove "_levelX.json" so all levels save into the same chapter doc
-    chapterDocId = chapterDocId.replace(/_level\d+\.json$/i, "");
+    if (currentLevel && currentChapterBase) {
+      // build doc ID like Data_science_chapter1.json
+      let chapterDocId = `${currentBasePath}${currentChapterBase}.json`.replace(/\//g, "_");
 
+      const ref = doc(db, "progress", userId, "chapters", chapterDocId);
+      const snap = await getDoc(ref);
+      let progress = snap.exists() ? snap.data() : {};
 
-    // path: progress/{userId}/chapters/{chapterDocId}
-    const ref = doc(db, "progress", userId, "chapters", chapterDocId);
+      progress[`level${currentLevel}`] = "completed";
+      if (currentLevel < 5) {
+        progress[`level${currentLevel + 1}`] = "unlocked";
+      }
 
-    const snap = await getDoc(ref);
-    let progress = snap.exists() ? snap.data() : {};
+      // add result to history inside progress as well (keep last 5)
+      const pct = questions.length ? (correct / questions.length) * 100 : 0;
+      const attempt = {
+        score: Math.round(pct),
+        correct,
+        total: questions.length,
+        level: currentLevel,
+        date: new Date().toISOString()
+      };
+      if (!progress.results) progress.results = [];
+      progress.results.unshift(attempt);
+      progress.results = progress.results.slice(0,5);
 
-    // mark current level as completed
-    progress[`level${currentLevel}`] = "completed";
-
-    // unlock next level if exists
-    if (currentLevel < 5) {
-      progress[`level${currentLevel+1}`] = "unlocked";
+      await setDoc(ref, progress, { merge: true });
+      console.log("Progress saved to:", ref.path, progress);
     }
-
-    // merge to keep old values
-    await setDoc(ref, progress, { merge: true });
-    console.log("Progress saved to:", ref.path, progress);
-
-  } catch (err) {
-    console.error("Progress update failed:", err);
-  }
-}
-
-
   } catch (err) {
     console.error("Progress update failed:", err);
   }
 
+  // 🔹 Celebration
   const pct = questions.length ? (correct / questions.length) * 100 : 0;
   launchCelebration(Math.round(pct));
+
+  // 🔹 Refresh recent results (if you switched to new function)
+  if (typeof showRecentResults === "function") {
+    await showRecentResults(userId, currentGhPath);
+  }
 }
 
 /* ---------- Last 5 results, modal, celebration, etc. ---------- */
-// Keep your existing code unchanged…
 
-/* second update of fetch last five result and show delete button in admin only */
-
-async function fetchLastFive() {
-  const body = $("last5-body");
-  const current = auth.currentUser;
-
-  if (!current) {
-    body.innerHTML = `<tr><td class="muted" colspan="6">Please log in to see results.</td></tr>`;
-    return;
-  }
-
-  body.innerHTML = `<tr><td class="muted" colspan="6">Loading…</td></tr>`;
-
+/* 🔹 Show last 5 attempts for the current chapter with colored badges */
+async function showRecentResults(userId, currentGhPath) {
   try {
-    // 🔹 Check admin claim
-    const idTokenResult = await current.getIdTokenResult(true);
-    const isAdmin = !!idTokenResult.claims.admin;
+    let chapterDocId = String(currentGhPath || "").replace(/\//g, "_");
+    chapterDocId = chapterDocId.replace(/_level\d+\.json$/i, "");
 
-    // 🔹 Handle table header for delete column
-    const headerRow = document.getElementById("results-header");
-    let deleteHeader = document.getElementById("delete-header");
-    if (isAdmin) {
-      if (!deleteHeader) {
-        deleteHeader = document.createElement("th");
-        deleteHeader.id = "delete-header";
-        deleteHeader.textContent = "Delete";
-        headerRow.appendChild(deleteHeader);
-      }
-    } else {
-      if (deleteHeader) deleteHeader.remove();
-    }
+    const ref = doc(db, "progress", userId, "chapters", chapterDocId);
+    const snap = await getDoc(ref);
 
-    let q;
-    if (isAdmin) {
-      // Admin → fetch all results
-      q = query(
-        collection(db, "quiz_results"),
-        orderBy("date", "desc"),
-        limit(50)
-      );
-    } else {
-      // Normal user → only their own results
-      q = query(
-        collection(db, "quiz_results"),
-        where("userId", "==", current.uid),
-        orderBy("date", "desc"),
-        limit(50)
-      );
-    }
-
-    const snap = await getDocs(q);
-
-    // Build list of results with doc.id included
-    const list = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-
-    if (!list.length) {
-      body.innerHTML = `<tr><td class="muted" colspan="${isAdmin ? 7 : 6}">No results yet. Finish a quiz to see it here.</td></tr>`;
+    if (!snap.exists()) {
+      $("recent-results").innerHTML = "<p>No past attempts yet.</p>";
       return;
     }
 
-    // Sort + take top 5
-    list.sort((a, b) => toMillis(b.date) - toMillis(a.date));
-    const top5 = list.slice(0, 5);
+    const data = snap.data();
+    const results = data.results || [];
 
-    body.innerHTML = "";
-    top5.forEach(d => {
-      const dt = d.date?.toDate ? d.date.toDate() : (d.date ? new Date(d.date) : null);
-      const dtTxt = dt ? dt.toLocaleString() : "";
-      const total = Number(d.totalQuestions) || 0;
-      const corr  = Number(d.correctAnswers) || 0;
-      const inc   = Number(d.incorrectAnswers) || Math.max(0, total - corr);
-      const secs  = Number(d.timeTakenSec) || 0;
-
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${dtTxt}</td>
-        <td>${d.subject || "N/A"}</td>
-        <td>${d.name || ""}</td>
-        <td>${corr}</td>
-        <td>${inc}</td>
-        <td>${secsToText(secs)}</td>
-        ${isAdmin ? `<td><button class="deleteBtn" data-id="${d.id}"><img src="https://img.icons8.com/ios-glyphs/30/000000/trash--v1.png" alt="Delete" style="width:20px;height:20px;cursor:pointer;" /></button></td>` : ""}
-      `;
-      tr.onclick = () => openModalForResult(d);
-      body.appendChild(tr);
-    });
-
-    // Attach delete handlers (only for admin)
-    if (isAdmin) {
-      document.querySelectorAll(".deleteBtn").forEach(btn => {
-        btn.addEventListener("click", async (e) => {
-          e.stopPropagation(); // prevent row click opening modal
-          const id = btn.dataset.id;
-          if (confirm("Are you sure you want to delete this result?")) {
-            try {
-              await deleteDoc(doc(db, "quiz_results", id));
-              alert("Result deleted!");
-              fetchLastFive(); // refresh table
-            } catch (err) {
-              console.error("Delete failed", err);
-              alert("Delete failed: " + err.message);
-            }
-          }
-        });
-      });
+    if (!results.length) {
+      $("recent-results").innerHTML = "<p>No past attempts yet.</p>";
+      return;
     }
 
+    // Build results list
+    let html = "<h3>Last 5 Attempts</h3><ul class='results-list'>";
+    for (const r of results) {
+      const date = new Date(r.date).toLocaleString();
+
+      // Decide badge color
+      let badgeClass = "badge-red";
+      if (r.score >= 70) badgeClass = "badge-green";
+      else if (r.score >= 40) badgeClass = "badge-orange";
+
+      html += `<li>
+        Level ${r.level} – 
+        <span class="badge ${badgeClass}">${r.score}%</span> 
+        (${r.correct}/${r.total}) 
+        <small>${date}</small>
+      </li>`;
+    }
+    html += "</ul>";
+
+    $("recent-results").innerHTML = html;
+
   } catch (err) {
-    console.error(err);
-    body.innerHTML = `<tr><td class="muted" colspan="6">Couldn't load results.</td></tr>`;
+    console.error("Failed to fetch recent results:", err);
+    $("recent-results").innerHTML = "<p>Error loading results.</p>";
   }
 }
+
+/* 🔹 New: fetchLastFive() to populate bottom results table (user's last 5 attempts) */
+async function fetchLastFive() {
+  const tbody = $("last5-body");
+  if (!tbody) return;
+  tbody.innerHTML = `<tr><td class="muted" colspan="6">Loading…</td></tr>`;
+
+  if (!userId) {
+    tbody.innerHTML = `<tr><td class="muted" colspan="6">Please log in to view results.</td></tr>`;
+    return;
+  }
+
+  try {
+    const q = query(collection(db, "quiz_results"), where('userId','==', userId), orderBy('date','desc'), limit(5));
+    const snaps = await getDocs(q);
+
+    if (snaps.empty) {
+      tbody.innerHTML = `<tr><td class="muted" colspan="6">No results yet.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = "";
+    // Check admin claim to optionally show delete button (best-effort)
+    let isAdmin = false;
+    try {
+      if (auth.currentUser && typeof auth.currentUser.getIdTokenResult === 'function') {
+        const tokenRes = await auth.currentUser.getIdTokenResult();
+        isAdmin = !!tokenRes.claims.admin;
+      }
+    } catch (e) {
+      console.warn("Could not read token claims:", e);
+      isAdmin = false;
+    }
+
+    snaps.forEach(docSnap => {
+      const d = docSnap.data();
+      const dt = toMillis(d.date);
+      const dateText = dt ? new Date(dt).toLocaleString() : "";
+      const tr = document.createElement('tr');
+
+      const correct = d.correctAnswers != null ? d.correctAnswers : (d.score != null ? d.score : "");
+      const incorrect = d.incorrectAnswers != null ? d.incorrectAnswers : "";
+
+      tr.innerHTML = `
+        <td>${dateText}</td>
+        <td>${d.subject || ""}</td>
+        <td>${d.chapter || ""}</td>
+        <td>Level ${d.level || 1}</td>
+        <td>${d.name || ""}</td>
+        <td>${correct}</td>
+        <td>${incorrect}</td>
+        <td>${secsToText(d.timeTakenSec || 0)}</td>
+      `;
+
+      tr.style.cursor = "pointer";
+      tr.addEventListener('click', ()=> openModalForResult(d));
+
+      // if admin, add a delete icon cell (simple)
+      if (isAdmin) {
+        const delTd = document.createElement('td');
+        delTd.innerHTML = `<button class="btn secondary" style="padding:6px 8px">Delete</button>`;
+        delTd.querySelector('button').onclick = async (ev) => {
+          ev.stopPropagation();
+          if (!confirm("Delete this result?")) return;
+          try {
+            await deleteDoc(doc(db, "quiz_results", docSnap.id));
+            fetchLastFive();
+          } catch (e) {
+            console.error("Delete failed:", e);
+            alert("Delete failed");
+          }
+        };
+        tr.appendChild(delTd);
+      }
+
+      tbody.appendChild(tr);
+    });
+
+  } catch (e) {
+    console.error("fetchLastFive failed:", e);
+    tbody.innerHTML = `<tr><td class="muted" colspan="6">Error loading results.</td></tr>`;
+  }
+}
+
 /* ---------- Modal helpers ---------- */
 function openModalForResult(data){
   const content = $("modal-content");
