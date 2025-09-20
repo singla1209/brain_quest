@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Which acid is present in vinegar?",
+    "options": {
+      "A": "Acetic acid",
+      "B": "Citric acid",
+      "C": "Lactic acid",
+      "D": "Formic acid"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "pH of a neutral solution at 25°C is:",
+    "options": {
+      "A": "0",
+      "B": "7",
+      "C": "14",
+      "D": "Between 7 and 14"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "A base that is soluble in water is called:",
+    "options": {
+      "A": "Salt",
+      "B": "Alkali",
+      "C": "Acid",
+      "D": "Indicator"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which indicator turns pink in basic solution?",
+    "options": {
+      "A": "Methyl orange",
+      "B": "Phenolphthalein",
+      "C": "Litmus (red to blue)",
+      "D": "Turmeric"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Baking soda is chemically:",
+    "options": {
+      "A": "Na2CO3",
+      "B": "NaHCO3",
+      "C": "Na2SO4",
+      "D": "K2CO3"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Plaster of Paris sets to become gypsum due to:",
+    "options": {
+      "A": "Loss of water",
+      "B": "Gain of water",
+      "C": "CO2 absorption",
+      "D": "Reaction with base"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Common salt is obtained by crystallisation to give:",
+    "options": {
+      "A": "Anhydrous NaCl",
+      "B": "NaCl with impurities only",
+      "C": "NaCl crystals often with NaCl·2H2O",
+      "D": "NaCl without water of crystallisation"
+    },
+    "correct": "D"
+  },
+  {
+    "question": "Chlor-alkali process produces:",
+    "options": {
+      "A": "HCl and H2",
+      "B": "NaOH, Cl2 and H2",
+      "C": "NaCl and Cl2",
+      "D": "NaOH only"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Tooth decay is caused when pH of mouth falls:",
+    "options": {
+      "A": "Below 7.0",
+      "B": "Above 7.0",
+      "C": "Exactly 7.0",
+      "D": "To 14"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Which salt gives neutral solution in water?",
+    "options": {
+      "A": "CH3COONa",
+      "B": "NH4Cl",
+      "C": "NaCl",
+      "D": "Na2CO3"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Milk of magnesia is used as:",
+    "options": {
+      "A": "Laxative",
+      "B": "Antacid",
+      "C": "Antibiotic",
+      "D": "Analgesic"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which gas is released when acids react with metals?",
+    "options": {
+      "A": "O2",
+      "B": "CO2",
+      "C": "H2",
+      "D": "N2"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Blue litmus turns red in:",
+    "options": {
+      "A": "Base",
+      "B": "Neutral",
+      "C": "Acid",
+      "D": "Salt"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Washing soda is:",
+    "options": {
+      "A": "Na2CO3·10H2O",
+      "B": "NaHCO3",
+      "C": "K2CO3",
+      "D": "CaCO3"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "The pH of a strong acid solution is likely to be:",
+    "options": {
+      "A": "1–3",
+      "B": "5–6",
+      "C": "7–8",
+      "D": "10–12"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Dry HCl gas does not change colour of dry blue litmus because:",
+    "options": {
+      "A": "HCl is not acidic",
+      "B": "Acidity requires water",
+      "C": "Litmus is defective",
+      "D": "HCl is basic when dry"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which acid is found in curd?",
+    "options": {
+      "A": "Acetic acid",
+      "B": "Lactic acid",
+      "C": "Oxalic acid",
+      "D": "Ascorbic acid"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Bleaching powder formula is:",
+    "options": {
+      "A": "CaOCl2",
+      "B": "CaCl2O2",
+      "C": "CaCl2",
+      "D": "Ca(ClO3)2"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Which pair shows acid and its conjugate base?",
+    "options": {
+      "A": "HCl / Cl−",
+      "B": "NaOH / OH−",
+      "C": "NH3 / NH4+",
+      "D": "H2O / H3O+"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Turmeric indicator turns:",
+    "options": {
+      "A": "Red in acid",
+      "B": "Blue in base",
+      "C": "Reddish-brown in base",
+      "D": "Colourless in base"
+    },
+    "correct": "C"
+  }
+]

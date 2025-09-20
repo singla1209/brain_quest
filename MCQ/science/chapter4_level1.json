@@ -1,0 +1,202 @@
+[
+  {
+    "question": "The tetravalency of carbon is due to:",
+    "options": {
+      "A": "4 valence neutrons",
+      "B": "4 valence electrons",
+      "C": "Cationic nature",
+      "D": "Large size"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "The general formula of alkanes is:",
+    "options": {
+      "A": "CnH2n",
+      "B": "CnH2n+2",
+      "C": "CnH2n−2",
+      "D": "CnH2n+1"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Functional group of alcohols is:",
+    "options": {
+      "A": "–CHO",
+      "B": "–COOH",
+      "C": "–OH",
+      "D": "–CO–"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Ethanoic acid is commonly known as:",
+    "options": {
+      "A": "Formic acid",
+      "B": "Acetic acid",
+      "C": "Oxalic acid",
+      "D": "Citric acid"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Ethanol on oxidation gives:",
+    "options": {
+      "A": "Ethene",
+      "B": "Ethanal/ethanoic acid",
+      "C": "Methane",
+      "D": "Propanone"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Addition reaction is shown by:",
+    "options": {
+      "A": "Alkanes",
+      "B": "Alkenes/alkynes",
+      "C": "Alcohols",
+      "D": "Carboxylic acids"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Saturated hydrocarbons mainly undergo:",
+    "options": {
+      "A": "Substitution",
+      "B": "Addition",
+      "C": "Elimination",
+      "D": "Polymerisation only"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Soap forms micelles because:",
+    "options": {
+      "A": "It is neutral",
+      "B": "It has hydrophilic and hydrophobic parts",
+      "C": "It is volatile",
+      "D": "It is ionic only"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Denatured alcohol contains:",
+    "options": {
+      "A": "Pure ethanol",
+      "B": "Ethanol + toxic additives",
+      "C": "Methanol only",
+      "D": "Water only"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "IUPAC name of CH3–CH2–CH2–OH is:",
+    "options": {
+      "A": "Methanol",
+      "B": "Ethanol",
+      "C": "Propanol",
+      "D": "Propanone"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Homologous series members have:",
+    "options": {
+      "A": "Same physical properties",
+      "B": "Same functional group and differ by –CH2–",
+      "C": "Same molar mass",
+      "D": "No relation"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Ethene reacts with bromine water to:",
+    "options": {
+      "A": "Decolourise it",
+      "B": "Turn it yellow",
+      "C": "No change",
+      "D": "Form a precipitate"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Hard water does not form lather with soap due to:",
+    "options": {
+      "A": "Presence of Na+ and K+",
+      "B": "Presence of Ca2+ and Mg2+",
+      "C": "Presence of Cl− only",
+      "D": "Absence of ions"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "The process of converting oils to fats is:",
+    "options": {
+      "A": "Saponification",
+      "B": "Hydrogenation",
+      "C": "Esterification",
+      "D": "Dehydrogenation"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Esterification involves reacting alcohol with:",
+    "options": {
+      "A": "Carboxylic acid",
+      "B": "Alkane",
+      "C": "Alkene",
+      "D": "Aldehyde only"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Which burns with a sooty flame?",
+    "options": {
+      "A": "Alkanes",
+      "B": "Alkenes",
+      "C": "Aromatic/unsaturated hydrocarbons",
+      "D": "Alcohols"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Methane is the main component of:",
+    "options": {
+      "A": "Biogas",
+      "B": "LPG (only)",
+      "C": "Coal gas (only)",
+      "D": "Air"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Which reagent oxidises ethanol to acetic acid in lab?",
+    "options": {
+      "A": "NaCl",
+      "B": "K2Cr2O7/H2SO4",
+      "C": "NaOH",
+      "D": "CuSO4"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Vinegar contains about:",
+    "options": {
+      "A": "4–8% ethanoic acid",
+      "B": "50% ethanoic acid",
+      "C": "0.1% ethanoic acid",
+      "D": "100% ethanoic acid"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Soaps are sodium or potassium salts of:",
+    "options": {
+      "A": "HCl",
+      "B": "Carboxylic acids (long-chain)",
+      "C": "Alcohols",
+      "D": "Aldehydes"
+    },
+    "correct": "B"
+  }
+]

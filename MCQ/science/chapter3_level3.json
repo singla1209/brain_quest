@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Which metal is stored under kerosene?",
+    "options": {
+      "A": "Sodium",
+      "B": "Iron",
+      "C": "Copper",
+      "D": "Silver"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Ore of aluminium is:",
+    "options": {
+      "A": "Hematite",
+      "B": "Bauxite",
+      "C": "Galena",
+      "D": "Magnetite"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which is a noble metal?",
+    "options": {
+      "A": "Sodium",
+      "B": "Potassium",
+      "C": "Gold",
+      "D": "Calcium"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Most reactive metal among the following is:",
+    "options": {
+      "A": "Cu",
+      "B": "Mg",
+      "C": "K",
+      "D": "Ag"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Which reaction represents corrosion?",
+    "options": {
+      "A": "Cu + S → CuS",
+      "B": "Fe + O2 + H2O → Fe2O3·xH2O",
+      "C": "2Na + Cl2 → 2NaCl",
+      "D": "Zn + CuSO4 → ZnSO4 + Cu"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which metal can displace hydrogen from acids?",
+    "options": {
+      "A": "Copper",
+      "B": "Silver",
+      "C": "Gold",
+      "D": "Zinc"
+    },
+    "correct": "D"
+  },
+  {
+    "question": "Which is an amphoteric oxide?",
+    "options": {
+      "A": "MgO",
+      "B": "Al2O3",
+      "C": "CaO",
+      "D": "Na2O"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which method is used for concentration of sulphide ores?",
+    "options": {
+      "A": "Levigation",
+      "B": "Froth flotation",
+      "C": "Magnetic separation",
+      "D": "Hand picking"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "The process of heating ore in absence of air is:",
+    "options": {
+      "A": "Roasting",
+      "B": "Calcination",
+      "C": "Smelting",
+      "D": "Alloying"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Galvanisation involves coating of:",
+    "options": {
+      "A": "Zinc on iron",
+      "B": "Tin on copper",
+      "C": "Silver on gold",
+      "D": "Copper on iron"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Bronze is an alloy of:",
+    "options": {
+      "A": "Cu and Zn",
+      "B": "Cu and Sn",
+      "C": "Fe and C",
+      "D": "Al and Mg"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which non-metal is lustrous?",
+    "options": {
+      "A": "Sulphur",
+      "B": "Phosphorus",
+      "C": "Iodine",
+      "D": "Carbon (coal)"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Aqua regia can dissolve:",
+    "options": {
+      "A": "Cu",
+      "B": "Ag",
+      "C": "Au",
+      "D": "Fe"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Which gas is evolved when metals react with bases like NaOH (Al, Zn)?",
+    "options": {
+      "A": "CO2",
+      "B": "H2",
+      "C": "O2",
+      "D": "Cl2"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "The property of being drawn into wires is:",
+    "options": {
+      "A": "Malleability",
+      "B": "Ductility",
+      "C": "Sonority",
+      "D": "Conductivity"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which substance is used for galvanising?",
+    "options": {
+      "A": "Zn",
+      "B": "Cu",
+      "C": "Ag",
+      "D": "Sn"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Rusting can be prevented by:",
+    "options": {
+      "A": "Oiling/greasing",
+      "B": "Adding acid",
+      "C": "Scratching",
+      "D": "Soaking in water"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Which pair forms ionic compound readily?",
+    "options": {
+      "A": "Na and Cl",
+      "B": "C and O",
+      "C": "H and O",
+      "D": "Si and O"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Electrolytic reduction is used in extraction of:",
+    "options": {
+      "A": "Aluminium",
+      "B": "Iron",
+      "C": "Copper from sulphide",
+      "D": "Zinc from oxide"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Which metal exists in liquid state at room temperature?",
+    "options": {
+      "A": "Gallium",
+      "B": "Mercury",
+      "C": "Cesium",
+      "D": "Sodium"
+    },
+    "correct": "B"
+  }
+]

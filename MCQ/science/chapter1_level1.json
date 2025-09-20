@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Which of the following is a balanced equation for the formation of water?",
+    "options": {
+      "A": "H2 + O2 → H2O",
+      "B": "2H2 + O2 → 2H2O",
+      "C": "H2 + O → H2O",
+      "D": "2H + O2 → H2O2"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "The reaction: 2KClO3 → 2KCl + 3O2 (Δ, MnO2) is an example of:",
+    "options": {
+      "A": "Combination",
+      "B": "Displacement",
+      "C": "Decomposition",
+      "D": "Double displacement"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Zn + CuSO4 → ZnSO4 + Cu is:",
+    "options": {
+      "A": "Redox and displacement",
+      "B": "Neutralisation",
+      "C": "Combination",
+      "D": "Precipitation"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "In 2Mg + O2 → 2MgO, magnesium is:",
+    "options": {
+      "A": "Reduced",
+      "B": "Oxidised",
+      "C": "Neither oxidised nor reduced",
+      "D": "Disproportionated"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which observation indicates a chemical change?",
+    "options": {
+      "A": "Melting of ice",
+      "B": "Evaporation of water",
+      "C": "Formation of a precipitate",
+      "D": "Breaking of glass"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Bleaching powder is formed by reaction of:",
+    "options": {
+      "A": "Cl2 with dry Ca(OH)2",
+      "B": "Cl2 with CaCO3",
+      "C": "HCl with Ca(OH)2",
+      "D": "Cl2 with CaO (no water)"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Which reaction is photochemical?",
+    "options": {
+      "A": "Decomposition of CaCO3",
+      "B": "Decomposition of AgCl in sunlight",
+      "C": "Combustion of methane",
+      "D": "Neutralisation"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Rusting of iron is prevented by:",
+    "options": {
+      "A": "Adding HCl",
+      "B": "Galvanisation",
+      "C": "Grinding",
+      "D": "Heating to redness"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "The ‘activity series’ is useful to predict:",
+    "options": {
+      "A": "Combination reactions",
+      "B": "Double displacement reactions",
+      "C": "Feasibility of metal displacement",
+      "D": "Solubility of salts"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Which is a precipitation reaction?",
+    "options": {
+      "A": "AgNO3 + NaCl → AgCl↓ + NaNO3",
+      "B": "H2 + Cl2 → 2HCl",
+      "C": "2SO2 + O2 → 2SO3",
+      "D": "Zn + S → ZnS"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Which change in a reaction shows exothermic nature?",
+    "options": {
+      "A": "Fall in temperature",
+      "B": "Rise in temperature",
+      "C": "No change in temperature",
+      "D": "Colour change only"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Electrolysis of water yields:",
+    "options": {
+      "A": "H2 and O2 in 1:1 volume",
+      "B": "H2 and O2 in 2:1 volume",
+      "C": "Only H2",
+      "D": "Only O2"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which statement about catalysts is correct?",
+    "options": {
+      "A": "They alter equilibrium constant",
+      "B": "They change ΔH",
+      "C": "They change rate of reaction",
+      "D": "They are always solids"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Which of the following is not a redox reaction?",
+    "options": {
+      "A": "HCl + NaOH → NaCl + H2O",
+      "B": "2Na + Cl2 → 2NaCl",
+      "C": "C + O2 → CO2",
+      "D": "Fe2O3 + 3CO → 2Fe + 3CO2"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "What is observed when iron nails are placed in CuSO4 solution?",
+    "options": {
+      "A": "Solution turns green; reddish-brown deposit forms",
+      "B": "No change",
+      "C": "Solution turns colourless",
+      "D": "Blue colour intensifies"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Which represents thermal decomposition?",
+    "options": {
+      "A": "2HgO → 2Hg + O2 (Δ)",
+      "B": "AgNO3 + NaCl → AgCl + NaNO3",
+      "C": "N2 + 3H2 → 2NH3",
+      "D": "CH4 + 2O2 → CO2 + 2H2O"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Identify the oxidising agent in reaction: Zn + 2HCl → ZnCl2 + H2",
+    "options": {
+      "A": "Zn",
+      "B": "HCl",
+      "C": "H2",
+      "D": "ZnCl2"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which change helps balance equations?",
+    "options": {
+      "A": "Changing subscripts",
+      "B": "Changing coefficients",
+      "C": "Removing products",
+      "D": "Adding catalysts into equation"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "A reaction where a substance gains hydrogen is called:",
+    "options": {
+      "A": "Oxidation",
+      "B": "Neutralisation",
+      "C": "Reduction",
+      "D": "Hydrolysis"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Which reaction is endothermic?",
+    "options": {
+      "A": "Photosynthesis",
+      "B": "Combustion of LPG",
+      "C": "Neutralisation",
+      "D": "Hydration of CaO"
+    },
+    "correct": "A"
+  }
+]

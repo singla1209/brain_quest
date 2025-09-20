@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Reflex actions are controlled by:",
+    "options": {
+      "A": "Brain",
+      "B": "Spinal cord",
+      "C": "Medulla only",
+      "D": "Cerebellum"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "The gap between two neurons is called:",
+    "options": {
+      "A": "Node",
+      "B": "Synapse",
+      "C": "Dendrite",
+      "D": "Axon"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Plant growth towards light is called:",
+    "options": {
+      "A": "Geotropism",
+      "B": "Phototropism",
+      "C": "Hydrotropism",
+      "D": "Thigmotropism"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which hormone regulates sugar level in blood?",
+    "options": {
+      "A": "Thyroxine",
+      "B": "Insulin",
+      "C": "Adrenaline",
+      "D": "Growth hormone"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Auxin promotes:",
+    "options": {
+      "A": "Cell elongation",
+      "B": "Leaf fall",
+      "C": "Seed dormancy",
+      "D": "Fruit ripening only"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Tropic movements are:",
+    "options": {
+      "A": "Non-directional",
+      "B": "Directional growth movements",
+      "C": "Only in animals",
+      "D": "Reflexes"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Cerebellum controls:",
+    "options": {
+      "A": "Intelligence",
+      "B": "Balance and coordination",
+      "C": "Vision",
+      "D": "Smell"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Adrenaline prepares the body for:",
+    "options": {
+      "A": "Sleep",
+      "B": "Fight or flight",
+      "C": "Digestion",
+      "D": "Growth"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Iodine is essential for production of:",
+    "options": {
+      "A": "Insulin",
+      "B": "Thyroxine",
+      "C": "Adrenaline",
+      "D": "Testosterone"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which part of brain controls respiration and heartbeat?",
+    "options": {
+      "A": "Cerebrum",
+      "B": "Medulla",
+      "C": "Cerebellum",
+      "D": "Midbrain"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which is a plant hormone?",
+    "options": {
+      "A": "Insulin",
+      "B": "Gibberellin",
+      "C": "Glucagon",
+      "D": "Adrenaline"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Electrical to chemical signal conversion happens at:",
+    "options": {
+      "A": "Dendrite",
+      "B": "Synapse (neurotransmitters)",
+      "C": "Axon hillock",
+      "D": "Myelin sheath"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Nastic movements in plants are:",
+    "options": {
+      "A": "Directional to stimulus",
+      "B": "Non-directional responses",
+      "C": "Always growth movements",
+      "D": "Due to hormones only"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Peripheral nervous system comprises:",
+    "options": {
+      "A": "Brain and spinal cord",
+      "B": "Cranial and spinal nerves",
+      "C": "Autonomic only",
+      "D": "Somatic only"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Phototropism in shoots is due to higher auxin on:",
+    "options": {
+      "A": "Lighted side",
+      "B": "Shaded side",
+      "C": "Both equal",
+      "D": "Random"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Vision center is located in:",
+    "options": {
+      "A": "Frontal lobe",
+      "B": "Occipital lobe",
+      "C": "Temporal lobe",
+      "D": "Parietal lobe"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which gland is called master gland?",
+    "options": {
+      "A": "Thyroid",
+      "B": "Pituitary",
+      "C": "Adrenal",
+      "D": "Pancreas"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Dendrites receive impulses from:",
+    "options": {
+      "A": "Other neurons/receptors",
+      "B": "Muscles only",
+      "C": "Glands only",
+      "D": "No function"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Photoperiodism affects:",
+    "options": {
+      "A": "Animal growth only",
+      "B": "Flowering in plants",
+      "C": "Blood pressure",
+      "D": "Reflexes"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which hormone promotes fruit ripening?",
+    "options": {
+      "A": "Auxin",
+      "B": "Ethylene",
+      "C": "Cytokinin",
+      "D": "Gibberellin"
+    },
+    "correct": "B"
+  }
+]

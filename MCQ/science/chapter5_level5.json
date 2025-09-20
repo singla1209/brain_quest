@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Which process involves breakdown of glucose in absence of oxygen?",
+    "options": {
+      "A": "Aerobic respiration",
+      "B": "Anaerobic respiration",
+      "C": "Photosynthesis",
+      "D": "Transpiration"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "In human alimentary canal, most absorption occurs in:",
+    "options": {
+      "A": "Stomach",
+      "B": "Small intestine",
+      "C": "Large intestine",
+      "D": "Mouth"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "The functional unit of kidney is:",
+    "options": {
+      "A": "Neuron",
+      "B": "Nephron",
+      "C": "Nephrite",
+      "D": "Nephridium"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Stomata regulate:",
+    "options": {
+      "A": "Respiration only",
+      "B": "Transpiration and gas exchange",
+      "C": "Transport of food",
+      "D": "Nitrogen fixation"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "The enzyme pepsin acts in:",
+    "options": {
+      "A": "Mouth at alkaline pH",
+      "B": "Stomach at acidic pH",
+      "C": "Small intestine at neutral pH",
+      "D": "Large intestine"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "The blood vessel carrying oxygenated blood from lungs to heart is:",
+    "options": {
+      "A": "Pulmonary artery",
+      "B": "Pulmonary vein",
+      "C": "Aorta",
+      "D": "Vena cava"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which pigment captures light in photosynthesis?",
+    "options": {
+      "A": "Chlorophyll",
+      "B": "Haemoglobin",
+      "C": "Carotene only",
+      "D": "Melanin"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "In plants, xylem transports:",
+    "options": {
+      "A": "Food",
+      "B": "Water and minerals",
+      "C": "Hormones only",
+      "D": "O2 only"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Guard cells become turgid when:",
+    "options": {
+      "A": "Water enters them",
+      "B": "Water leaves them",
+      "C": "Sugar leaves them",
+      "D": "They die"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Bile is produced by:",
+    "options": {
+      "A": "Pancreas",
+      "B": "Liver",
+      "C": "Gall bladder",
+      "D": "Spleen"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which part of nephron is responsible for ultrafiltration?",
+    "options": {
+      "A": "Loop of Henle",
+      "B": "Bowman’s capsule/Glomerulus",
+      "C": "Collecting duct",
+      "D": "Distal tubule"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which is correct for double circulation in humans?",
+    "options": {
+      "A": "Blood passes once through heart",
+      "B": "Blood passes twice through heart per cycle",
+      "C": "No separation of oxygenated and deoxygenated blood",
+      "D": "Occurs only during exercise"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "End products of anaerobic respiration in muscles are:",
+    "options": {
+      "A": "CO2 and H2O",
+      "B": "Lactic acid and energy",
+      "C": "Ethanol and CO2",
+      "D": "Urea and CO2"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Translocation in plants is carried out by:",
+    "options": {
+      "A": "Xylem",
+      "B": "Phloem",
+      "C": "Epidermis",
+      "D": "Cortex"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which test indicates presence of starch?",
+    "options": {
+      "A": "Benedict’s test",
+      "B": "Biuret test",
+      "C": "Iodine test (blue‑black)",
+      "D": "Fehling’s test"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Pancreatic juice contains:",
+    "options": {
+      "A": "Trypsin, amylase, lipase",
+      "B": "Pepsin only",
+      "C": "Bile salts",
+      "D": "HCl"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Opening and closing of stomata is controlled by:",
+    "options": {
+      "A": "Light and turgor changes",
+      "B": "Temperature only",
+      "C": "Wind only",
+      "D": "Soil pH only"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Haemoglobin is present in:",
+    "options": {
+      "A": "RBCs",
+      "B": "WBCs",
+      "C": "Platelets",
+      "D": "Plasma"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "The ultimate source of energy for living beings is:",
+    "options": {
+      "A": "ATP",
+      "B": "Sun",
+      "C": "Glucose",
+      "D": "Fats"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which pathway produces maximum ATP per glucose?",
+    "options": {
+      "A": "Anaerobic glycolysis",
+      "B": "Aerobic respiration",
+      "C": "Fermentation",
+      "D": "Photosynthesis"
+    },
+    "correct": "B"
+  }
+]

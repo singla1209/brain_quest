@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Asexual reproduction produces offspring that are:",
+    "options": {
+      "A": "Genetically identical to parent",
+      "B": "Genetically varied",
+      "C": "Always sterile",
+      "D": "Always polyploid"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Binary fission occurs in:",
+    "options": {
+      "A": "Yeast",
+      "B": "Amoeba",
+      "C": "Hydra",
+      "D": "Planaria (only regeneration)"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Budding is seen in:",
+    "options": {
+      "A": "Amoeba",
+      "B": "Hydra and yeast",
+      "C": "Plasmodium",
+      "D": "Euglena"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Vegetative propagation by leaves occurs in:",
+    "options": {
+      "A": "Potato",
+      "B": "Bryophyllum",
+      "C": "Onion",
+      "D": "Ginger"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which is not a sexually transmitted infection?",
+    "options": {
+      "A": "AIDS",
+      "B": "Gonorrhoea",
+      "C": "Malaria",
+      "D": "Syphilis"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Which structure produces male gametes in plants?",
+    "options": {
+      "A": "Ovule",
+      "B": "Anther",
+      "C": "Stigma",
+      "D": "Style"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Double fertilisation is unique to:",
+    "options": {
+      "A": "Bryophytes",
+      "B": "Pteridophytes",
+      "C": "Gymnosperms",
+      "D": "Angiosperms"
+    },
+    "correct": "D"
+  },
+  {
+    "question": "Which prevents pregnancy by blocking sperm entry?",
+    "options": {
+      "A": "IUD",
+      "B": "Oral pills",
+      "C": "Condom",
+      "D": "Both IUD and condom"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Which is not a function of placenta?",
+    "options": {
+      "A": "Nutrient transfer",
+      "B": "Gas exchange",
+      "C": "Waste removal",
+      "D": "Production of sperm"
+    },
+    "correct": "D"
+  },
+  {
+    "question": "Testes are located in scrotum to:",
+    "options": {
+      "A": "Keep higher temperature",
+      "B": "Maintain lower temperature than body",
+      "C": "For protection only",
+      "D": "For hormone storage"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Which hormone causes ovulation?",
+    "options": {
+      "A": "FSH",
+      "B": "LH surge",
+      "C": "Progesterone",
+      "D": "Prolactin"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Regeneration is seen in:",
+    "options": {
+      "A": "Hydra and Planaria",
+      "B": "Mammals",
+      "C": "Birds",
+      "D": "Gymnosperms"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Contraceptive pills mainly contain:",
+    "options": {
+      "A": "Insulin",
+      "B": "Oestrogen and progesterone",
+      "C": "Thyroxine",
+      "D": "Testosterone"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Pollination is transfer of pollen from:",
+    "options": {
+      "A": "Anther to stigma",
+      "B": "Stigma to anther",
+      "C": "Anther to ovule",
+      "D": "Anther to style"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Self‑pollination occurs in:",
+    "options": {
+      "A": "Flowers with exposed stamens only",
+      "B": "Bisexual flowers",
+      "C": "Unisexual flowers only",
+      "D": "Wind pollinated only"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Zygote is:",
+    "options": {
+      "A": "Haploid",
+      "B": "Diploid",
+      "C": "Triploid",
+      "D": "Tetraploid"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Scion is grafted on:",
+    "options": {
+      "A": "Stock",
+      "B": "Another scion",
+      "C": "Root hairs",
+      "D": "Seed"
+    },
+    "correct": "A"
+  },
+  {
+    "question": "Which method gives large numbers of identical plants quickly?",
+    "options": {
+      "A": "Cutting",
+      "B": "Layering",
+      "C": "Tissue culture (micropropagation)",
+      "D": "Grafting"
+    },
+    "correct": "C"
+  },
+  {
+    "question": "Part of flower that develops into fruit is:",
+    "options": {
+      "A": "Ovule",
+      "B": "Ovary",
+      "C": "Anther",
+      "D": "Sepal"
+    },
+    "correct": "B"
+  },
+  {
+    "question": "Condoms help prevent:",
+    "options": {
+      "A": "Only pregnancy",
+      "B": "Only STIs",
+      "C": "Both pregnancy and many STIs",
+      "D": "Neither"
+    },
+    "correct": "C"
+  }
+]
