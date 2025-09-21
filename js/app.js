@@ -406,7 +406,7 @@ async function beginQuizFromUrl(url, subjectLabel, chapterTitle, level = null, g
   $("end-screen").style.display = "none";
 
   $("welcome-banner").innerHTML =
-    `Welcome <span class="name">${userName}</span> in BrainQuest of <b>‘${subjectLabel}’ : ${chapterTitle.replace(/^Chapter\s*\d+\s*:\s*/i,'')}</b>`;
+    `Welcome <span class="name">${userName}</span> in BrainQuest of <b>‘${subjectLabel}’ : ${chapterTitle.replace(/^Chapter\s*\d+\s*:\s*/i,'')}</b><span class="level"> (Level:-${level})</span>`;
 
   show("quiz");
 
